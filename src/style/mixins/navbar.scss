@@ -1,0 +1,77 @@
+.navbar{
+
+    @include fix-position(0,auto,auto,-110%);
+    @include box(100%,100%);
+    z-index: 1000;
+    @include flex(flex-start,center);
+    flex-flow: column;
+    padding: 0 10%;
+
+    a{
+        font-size: 4rem;
+        color: transparent;
+        -webkit-text-stroke: .5px rgba(255,255,255,.5);
+        font-weight: bolder;
+        position: relative;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+
+        &::before{
+            content: attr(data-text);
+            @include abs-position(0, auto,auto,0);
+            color: rgba(255,255,255,.9);
+            transition: .3s linear;
+            clip-path: polygon(0 0, 0 0,  0 100%, 0% 100%);
+        }
+
+        &:hover::before{
+            clip-path: polygon(0 0, 100% 0, 99% 100%, 0% 100%);
+        }
+
+        &:hover:nth-child(2) ~ .background-image{
+            background: url(../img/nav-img-2.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &:hover:nth-child(3) ~ .background-image{
+            background: url(../img/nav-img-3.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &:hover:nth-child(4) ~ .background-image{
+            background: url(../img/nav-img-4.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &:hover:nth-child(5) ~ .background-image{
+            background: url(../img/nav-img-5.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .background-image{
+        @include abs-position(0, auto, auto, 0);
+        @include box(100%,100%);
+        background: url(../img/nav-img-1.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+    @media(max-width:768px){
+        a{
+            font-size: 3em;
+        }
+    }
+
+    @media(max-width:450px){
+        a{
+            font-size: 2em;
+        }
+    }
+
+}

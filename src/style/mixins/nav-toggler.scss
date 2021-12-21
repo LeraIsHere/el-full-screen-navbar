@@ -1,0 +1,21 @@
+#nav-toggler{
+    -webkit-appearance: none;
+    @include fix-position(20px,30px,auto,auto);
+    cursor: pointer;
+    z-index: 1010;
+    font-size: 3rem;
+
+    &:checked{
+        transform: rotate(180deg);
+    }
+
+    &:checked ~ .navbar{
+        left: 0;
+    }
+
+    &:checked::before{
+        content: '\f00d';
+        color: #fff;
+        transition: .2s linear .2s;
+    }
+}
